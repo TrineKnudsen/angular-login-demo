@@ -5,19 +5,22 @@ import { ProductsRoutingModule } from './products-routing.module';
 import { ProductsComponent } from './list/products.component';
 import {HttpClientModule} from "@angular/common/http";
 import { UpdateComponent } from './update/update.component';
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { ProductDetailsComponent } from './product-details/product-details.component';
 
 
 @NgModule({
   declarations: [
     ProductsComponent,
-    UpdateComponent
+    UpdateComponent,
+    ProductDetailsComponent
   ],
-  imports: [
-    CommonModule,
-    ProductsRoutingModule,
-    HttpClientModule,
-    ReactiveFormsModule,
-  ]
+    imports: [
+        CommonModule,
+        ProductsRoutingModule,
+        HttpClientModule,
+        ReactiveFormsModule,
+        FormsModule,
+    ]
 })
 export class ProductsModule { }
