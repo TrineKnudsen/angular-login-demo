@@ -21,4 +21,8 @@ export class ProductsComponent implements OnInit {
   onSelect(product: Product): void {
     this.selectedProduct = product;
   }
+
+  delete(product: Product) {
+    
+  }
 }
