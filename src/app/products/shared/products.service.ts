@@ -28,4 +28,9 @@ export class ProductsService {
     return this._http
       .put<Product>(this.productsApi + '/' + product.id, product);
   }
+
+  addProduct(product: Product) {
+    return this._http
+      .post<Product>(this.productsApi, product);
+  }
 }

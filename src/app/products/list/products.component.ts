@@ -26,7 +26,10 @@ export class ProductsComponent implements OnInit {
 
   }
 
-  add(value: string) {
-
+  add(name: string) {
+    name = name.trim();
+    if (!name) {return;}
+    this._productsService.addProduct({name} as Product)
+      .subscribe();
   }
 }
