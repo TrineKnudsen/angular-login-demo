@@ -23,6 +23,10 @@ export class ProductsComponent implements OnInit {
   }
 
   delete(product: Product) {
-    
+
+  }
+
+  add(value: string) {
+
   }
 }

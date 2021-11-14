@@ -1,4 +1,13 @@
-<h1>Products</h1>
+<h1 xmlns="http://www.w3.org/1999/html">Products</h1>
+
+<div>
+  <label for="new-product">Hero name: </label>
+  <input id="new-product" #productName/>
+
+  <button class="add-button" (click)="add(productName.value);
+productName.value=''">Add product</button>
+</div>
+
 <ul *ngIf="$products | async as productsList">
   <li *ngFor="let product of productsList.list"
 
