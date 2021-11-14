@@ -29,7 +29,7 @@ export class ProductsService {
       .put<Product>(this.productsApi + '/' + product.id, product);
   }
 
-  addProduct(product: Product) {
+  addProduct(product: Product): Observable<Product> {
     return this._http
       .post<Product>(this.productsApi, product);
   }
