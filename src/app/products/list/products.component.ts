@@ -12,6 +12,7 @@ import {Product} from "../shared/product.model";
 export class ProductsComponent implements OnInit {
   $products: Observable<ProductList> | undefined;
   selectedProduct?: Product;
+  products: Product[] = [];
   constructor(private _productsService: ProductsService) { }
 
   ngOnInit(): void {
@@ -23,7 +24,8 @@ export class ProductsComponent implements OnInit {
   }
 
   delete(product: Product) {
-
+    this.products = this.products.filter(p => p !== product)
+    this._productsService.deleteProduct(product.id).subscribe();
   }
 
   add(name: string) {
