@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ProductsService} from "../shared/products.service";
-import {Observable} from "rxjs";
+import {Observable, Subscription} from "rxjs";
 import {ProductList} from "../shared/product-list.model";
 import {Product} from "../shared/product.model";
+import {delay, take} from "rxjs/operators";
 
 @Component({
   selector: 'app-products',
@@ -10,13 +11,14 @@ import {Product} from "../shared/product.model";
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent implements OnInit {
-  $products: Observable<ProductList> | undefined;
   selectedProduct?: Product;
-  products: Product[] = [];
+  products: Product[] | undefined;
+  products$: Observable<ProductList> | undefined;
+
   constructor(private _productsService: ProductsService) { }
 
   ngOnInit(): void {
-    this.$products = this._productsService.getProducts();
+    this.products$ = this._productsService.getProducts();
   }
 
   onSelect(product: Product): void {

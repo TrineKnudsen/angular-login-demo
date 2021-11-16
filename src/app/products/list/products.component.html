@@ -8,7 +8,7 @@
 productName.value=''">Add product</button>
 </div>
 
-<ul *ngIf="$products | async as productsList">
+<ul *ngIf="products$ | async as productsList else loading">
   <li *ngFor="let product of productsList.list"
 
   [class.selected]="product===selectedProduct"
@@ -18,4 +18,5 @@ productName.value=''">Add product</button>
             (click)="delete(product)">x</button>
   </li>
 </ul>
+<ng-template #loading>......loading</ng-template>
 <app-product-details [product]="selectedProduct"></app-product-details>
