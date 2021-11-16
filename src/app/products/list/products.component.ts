@@ -26,8 +26,8 @@ export class ProductsComponent implements OnInit {
   }
 
   delete(product: Product) {
-    this.products = this.products.filter(p => p !== product)
     this._productsService.deleteProduct(product.id).subscribe();
+    this.ngOnInit();
   }
 
   add(name: string) {

@@ -1,5 +1,7 @@
 <h1 xmlns="http://www.w3.org/1999/html">Products</h1>
 
+<h2>All products:</h2>
+
 <div>
   <label for="new-product">Hero name: </label>
   <input id="new-product" #productName/>
@@ -8,7 +10,8 @@
 productName.value=''">Add product</button>
 </div>
 
-<ul *ngIf="products$ | async as productsList else loading">
+<ul class="products"
+    *ngIf="products$ | async as productsList else loading">
   <li *ngFor="let product of productsList.list"
 
   [class.selected]="product===selectedProduct"
