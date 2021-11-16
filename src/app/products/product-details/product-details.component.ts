@@ -1,5 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Product} from "../shared/product.model";
+import {ActivatedRoute} from "@angular/router";
+import {Location} from "@angular/common";
 
 @Component({
   selector: 'app-product-details',
@@ -8,9 +10,17 @@ import {Product} from "../shared/product.model";
 })
 export class ProductDetailsComponent implements OnInit {
   @Input() product?: Product;
-  constructor() { }
+  constructor(
+    private route: ActivatedRoute,
+    private location: Location,
+
+  ) { }
 
   ngOnInit(): void {
   }
 
+  ClearSelection(): void {
+    //skal fjerne detaljerne igen måske??
+    this.location.back();
+  }
 }

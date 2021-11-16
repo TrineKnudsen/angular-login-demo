@@ -1,6 +1,13 @@
 <div *ngIf="product">
   <h2>{{product.name}} Details </h2>
   <div><span>Id: </span>{{product.id}}</div>
-  <div><span>Product Name: </span>{{product.name}}</div>
+
+  <div>
+
+    <label for="name">Product Name: </label>{{product.name}}
+    <input id="name"[(ngModel)]="product.name"
+          placeholder="name">
+  </div>
 
 </div>
+<button (click)="ClearSelection()">Clear</button>
