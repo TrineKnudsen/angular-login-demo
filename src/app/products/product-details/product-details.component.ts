@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Product} from "../shared/product.model";
 import {ActivatedRoute} from "@angular/router";
 import {Location} from "@angular/common";
+import {ProductsService} from "../shared/products.service";
 
 @Component({
   selector: 'app-product-details',
@@ -13,13 +14,22 @@ export class ProductDetailsComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private location: Location,
+    private productService: ProductsService,
 
   ) { }
 
   ngOnInit(): void {
   }
 
-  ClearSelection(): void {
+
+  update(): void {
+    if(this.product){
+      this.productService.update(this.product)
+        .subscribe(()=> this.clearSelection())
+    }
+  }
+
+  clearSelection(): void {
     //skal fjerne detaljerne igen måske??
     this.location.back();
   }
