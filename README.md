@@ -1,5 +1,7 @@
 # PetshopFrontend
 
+Alle CRUD metoder virker for product men vi fik ikke security delen til at virke med login.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.9.
 
 ## Development server
